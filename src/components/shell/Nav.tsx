@@ -71,7 +71,7 @@ export function Nav() {
               className="group flex shrink-0 items-center text-forest-700"
               aria-label="Prakruti, home"
             >
-              <Logo markClassName="h-7" />
+              <Logo markPx={28} />
             </Link>
 
             <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">

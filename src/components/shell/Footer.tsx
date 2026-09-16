@@ -25,7 +25,7 @@ export function Footer() {
         <div className="grid gap-14 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div className="flex flex-col gap-6">
             <Link href="/" className="flex items-center text-cream-50" aria-label="Prakruti, home">
-              <Logo markClassName="h-9" className="gap-3 text-2xl" />
+              <Logo markPx={34} />
             </Link>
             {/* The meaning is stated once, here. Repeating it on every page
                 would turn a genuine asset into a tagline. */}

@@ -13,10 +13,11 @@ import { cn } from "@/lib/utils";
  * Inlined rather than loaded as an <img>: it is small, it avoids a request,
  * and an external file cannot inherit colour.
  */
-export function LogoMark({ className }: { className?: string }) {
+export function LogoMark({ className, style }: { className?: string; style?: React.CSSProperties }) {
   return (
     <svg
       viewBox="0 0 600 498"
+      style={style}
       className={cn("h-full w-auto", className)}
       role="img"
       aria-hidden
@@ -40,16 +41,42 @@ export function LogoMark({ className }: { className?: string }) {
 }
 
 /**
- * Mark plus wordmark. The lockup used everywhere the brand is shown.
+ * Mark plus wordmark.
  *
- * The wordmark is live text rather than outlines, so it stays selectable,
- * searchable and crisp at any size.
+ * One number drives the lockup: the mark is the dominant element at `markPx`,
+ * and the wordmark is set 4px smaller. The mark stays visually larger, which
+ * is the intent, and the pair scale together from a single prop.
+ *
+ * They are centred on their painted extents, not their boxes. A line box
+ * carries descender space below the baseline, so centring the boxes alone
+ * leaves the letters sitting high against the mark; OPTICAL_NUDGE corrects it.
+ *
+ * The wordmark stays live text, so it remains selectable and crisp at any size.
  */
-export function Logo({ className, markClassName }: { className?: string; markClassName?: string }) {
+const OPTICAL_NUDGE = 0.06; // share of font size, measured from the render
+
+export function Logo({
+  className,
+  markPx = 28,
+  markClassName,
+}: {
+  className?: string;
+  markPx?: number;
+  markClassName?: string;
+}) {
+  const fontSizePx = markPx - 4;
+
   return (
-    <span className={cn("flex items-center gap-2.5 text-xl", className)}>
-      <LogoMark className={cn("h-7", markClassName)} />
-      <span className="font-[family-name:var(--font-display)] font-bold tracking-[-0.02em]">
+    <span className={cn("inline-flex items-center", className)} style={{ gap: markPx * 0.28 }}>
+      <LogoMark style={{ height: markPx }} className={cn("w-auto shrink-0", markClassName)} />
+      <span
+        className="font-[family-name:var(--font-display)] font-bold tracking-[-0.02em]"
+        style={{
+          fontSize: fontSizePx,
+          lineHeight: 1,
+          transform: `translateY(${fontSizePx * OPTICAL_NUDGE}px)`,
+        }}
+      >
         Prakruti
       </span>
     </span>
