@@ -149,11 +149,11 @@ function ModePreview() {
           <Image
             src={PANEL_IMAGE}
             alt=""
-            width={793}
+            width={792}
             height={709}
             priority
             aria-hidden
-            className="pointer-events-none absolute bottom-3 right-3 z-0 h-[51px] w-auto object-contain object-right-bottom"
+            className="pointer-events-none absolute -bottom-2 right-2 z-0 h-[102px] w-auto object-contain object-right-bottom"
           />
         ) : null}
 
