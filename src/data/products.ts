@@ -10,6 +10,11 @@ import type { Product } from "@/types";
  *
  * Origins, harvest windows and ports are real. Prices are indicative and
  * would come from a live rate sheet in production.
+ *
+ * Every product points at its category photograph rather than its own. There
+ * are 6 photographs and 25 products, so this keeps the catalogue uniformly
+ * photographed instead of a few real tiles among gradients. ProductCard
+ * varies the crop per product so the repeats do not read as identical.
  */
 export const products: Product[] = [
   // ---------------------------------------------------------------- pulses
@@ -50,7 +55,7 @@ export const products: Product[] = [
     ],
     storage: "Cool and dry, below 25°C. Keep sealed once opened.",
     shelfLifeMonths: 12,
-    image: "/toor-dal.jpg",
+    image: "/pulses.webp",
     featured: true,
   },
   {
@@ -80,7 +85,7 @@ export const products: Product[] = [
     ],
     storage: "Cool and dry, below 25°C.",
     shelfLifeMonths: 12,
-    image: "/chana-dal.jpg",
+    image: "/pulses.webp",
   },
   {
     slug: "moong-dal",
@@ -109,7 +114,7 @@ export const products: Product[] = [
     ],
     storage: "Cool and dry, below 25°C.",
     shelfLifeMonths: 12,
-    image: "/moong-dal.jpg",
+    image: "/pulses.webp",
     featured: true,
   },
   {
@@ -139,7 +144,7 @@ export const products: Product[] = [
     ],
     storage: "Cool and dry, below 25°C.",
     shelfLifeMonths: 12,
-    image: "/urad-dal.jpg",
+    image: "/pulses.webp",
   },
   {
     slug: "masoor-dal",
@@ -168,7 +173,7 @@ export const products: Product[] = [
     ],
     storage: "Cool and dry, below 25°C.",
     shelfLifeMonths: 12,
-    image: "/masoor-dal.jpg",
+    image: "/pulses.webp",
   },
   {
     slug: "rajma-chitra",
@@ -197,7 +202,7 @@ export const products: Product[] = [
     ],
     storage: "Cool and dry, below 25°C.",
     shelfLifeMonths: 12,
-    image: "/rajma-chitra.jpg",
+    image: "/pulses.webp",
   },
 
   // ------------------------------------------------------------------ rice
@@ -231,7 +236,7 @@ export const products: Product[] = [
     ],
     storage: "Cool and dry. Keep away from strong odours. Rice takes them on.",
     shelfLifeMonths: 24,
-    image: "/basmati-1121.jpg",
+    image: "/rice.webp",
     featured: true,
   },
   {
@@ -263,7 +268,7 @@ export const products: Product[] = [
     ],
     storage: "Cool and dry.",
     shelfLifeMonths: 18,
-    image: "/sona-masoori.jpg",
+    image: "/rice.webp",
   },
   {
     slug: "ponni-rice",
@@ -292,7 +297,7 @@ export const products: Product[] = [
     ],
     storage: "Cool and dry.",
     shelfLifeMonths: 18,
-    image: "/ponni-rice.jpg",
+    image: "/rice.webp",
   },
   {
     slug: "palakkad-matta",
@@ -321,7 +326,7 @@ export const products: Product[] = [
     ],
     storage: "Cool and dry.",
     shelfLifeMonths: 12,
-    image: "/palakkad-matta.jpg",
+    image: "/rice.webp",
   },
 
   // ---------------------------------------------------------------- spices
@@ -355,7 +360,7 @@ export const products: Product[] = [
     ],
     storage: "Airtight, away from light. Colour fades before flavour does.",
     shelfLifeMonths: 18,
-    image: "/guntur-chilli.jpg",
+    image: "/spices.webp",
     featured: true,
   },
   {
@@ -386,7 +391,7 @@ export const products: Product[] = [
     ],
     storage: "Airtight, cool and dark.",
     shelfLifeMonths: 24,
-    image: "/erode-turmeric.jpg",
+    image: "/spices.webp",
   },
   {
     slug: "idukki-black-pepper",
@@ -417,7 +422,7 @@ export const products: Product[] = [
     ],
     storage: "Airtight. Grind close to use.",
     shelfLifeMonths: 24,
-    image: "/black-pepper.jpg",
+    image: "/spices.webp",
     featured: true,
   },
   {
@@ -448,7 +453,7 @@ export const products: Product[] = [
     ],
     storage: "Airtight, cool and dark.",
     shelfLifeMonths: 24,
-    image: "/cumin.jpg",
+    image: "/spices.webp",
   },
   {
     slug: "alleppey-cardamom",
@@ -479,7 +484,7 @@ export const products: Product[] = [
     ],
     storage: "Airtight and cold. Cardamom loses oil faster than any spice we sell.",
     shelfLifeMonths: 12,
-    image: "/cardamom.jpg",
+    image: "/spices.webp",
   },
 
   // --------------------------------------------------------------- pickles
@@ -511,7 +516,7 @@ export const products: Product[] = [
     ],
     storage: "Ambient. Use a dry spoon. Water is the only thing that spoils it.",
     shelfLifeMonths: 24,
-    image: "/avakaya.jpg",
+    image: "/pickles.webp",
     featured: true,
   },
   {
@@ -541,7 +546,7 @@ export const products: Product[] = [
     ],
     storage: "Ambient. Dry spoon only.",
     shelfLifeMonths: 24,
-    image: "/lime-pickle.jpg",
+    image: "/pickles.webp",
   },
   {
     slug: "gongura-pickle",
@@ -570,7 +575,7 @@ export const products: Product[] = [
     ],
     storage: "Ambient. Dry spoon only.",
     shelfLifeMonths: 18,
-    image: "/gongura.jpg",
+    image: "/pickles.webp",
   },
 
   // ---------------------------------------------------------- fruit & veg
@@ -603,7 +608,7 @@ export const products: Product[] = [
     ],
     storage: "Ambient to ripen, then refrigerate. Never refrigerate unripe.",
     shelfLifeMonths: 1,
-    image: "/alphonso.jpg",
+    image: "/produce.webp",
   },
   {
     slug: "nashik-onion",
@@ -633,7 +638,7 @@ export const products: Product[] = [
     ],
     storage: "Dry and ventilated. Never sealed. Onions need air.",
     shelfLifeMonths: 4,
-    image: "/onion.jpg",
+    image: "/produce.webp",
   },
   {
     slug: "jalgaon-banana",
@@ -663,7 +668,7 @@ export const products: Product[] = [
     ],
     storage: "13°C in transit. Ripen at 16-18°C at destination.",
     shelfLifeMonths: 1,
-    image: "/banana.jpg",
+    image: "/produce.webp",
   },
 
   // ------------------------------------------------------- grocery staples
@@ -695,7 +700,7 @@ export const products: Product[] = [
     ],
     storage: "Airtight. Jaggery pulls moisture out of the air and softens.",
     shelfLifeMonths: 12,
-    image: "/jaggery.jpg",
+    image: "/grocery.webp",
   },
   {
     slug: "chikmagalur-coffee",
@@ -725,7 +730,7 @@ export const products: Product[] = [
     ],
     storage: "Airtight, away from light. Green beans keep far longer than roasted.",
     shelfLifeMonths: 12,
-    image: "/coffee.jpg",
+    image: "/grocery.webp",
   },
   {
     slug: "groundnut-oil",
@@ -755,7 +760,7 @@ export const products: Product[] = [
     ],
     storage: "Cool and dark. Sediment is normal.",
     shelfLifeMonths: 9,
-    image: "/groundnut-oil.jpg",
+    image: "/grocery.webp",
   },
   {
     slug: "assam-ctc-tea",
@@ -785,7 +790,7 @@ export const products: Product[] = [
     ],
     storage: "Airtight, away from odours.",
     shelfLifeMonths: 18,
-    image: "/assam-tea.jpg",
+    image: "/grocery.webp",
   },
 ];
 

@@ -31,6 +31,12 @@ type Props = {
    * guarantees they differ. Ignored once real photography is in.
    */
   seed?: number;
+  /**
+   * Tailwind object-position class. Several products share one category
+   * photograph, so varying the crop stops the repeats reading as identical
+   * tiles.
+   */
+  focal?: string;
 };
 
 /** Stable hash so a given subject always gets the same placeholder treatment. */
@@ -59,6 +65,7 @@ export function EditorialImage({
   label,
   grain = true,
   seed: seedOverride,
+  focal,
 }: Props) {
   if (hasImage(src)) {
     return (
@@ -69,7 +76,7 @@ export function EditorialImage({
           fill
           sizes={sizes}
           priority={priority}
-          className="object-cover"
+          className={cn("object-cover", focal)}
         />
         {grain ? <span aria-hidden className="grain-overlay" /> : null}
       </div>

@@ -10,6 +10,27 @@ import { cn } from "@/lib/utils";
 import type { Product } from "@/types";
 
 /**
+ * Six photographs cover 25 products, so each card crops its category image
+ * differently. Deterministic from the slug, so a product always looks the
+ * same, and neighbours in the grid rarely match.
+ */
+const FOCALS = [
+  "object-[50%_50%]",
+  "object-[38%_44%]",
+  "object-[62%_56%]",
+  "object-[46%_66%]",
+  "object-[58%_38%]",
+  "object-[42%_58%]",
+  "object-[54%_62%]",
+];
+
+function focalFor(slug: string) {
+  let h = 0;
+  for (let i = 0; i < slug.length; i++) h = (h * 31 + slug.charCodeAt(i)) | 0;
+  return FOCALS[Math.abs(h) % FOCALS.length];
+}
+
+/**
  * Airbnb listing card: a rounded square image, then three tight lines of text
  * beneath it. Title, secondary detail, price. No border, no card background,
  * no shadow. The only hover is a slow image zoom inside the fixed frame.
@@ -38,6 +59,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
             alt={product.name}
             label={product.name}
             aspect="aspect-square"
+            focal={focalFor(product.slug)}
             priority={priority}
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1440px) 25vw, 17vw"
           />
