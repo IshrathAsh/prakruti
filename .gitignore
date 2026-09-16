@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Original generated PNGs. Archived, not deployed.
+source-images/
+
+# Agent skills, vendored tooling rather than app code
+.agents/
+.claude/
+skills-lock.json
